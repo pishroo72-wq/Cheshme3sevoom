@@ -4,73 +4,170 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101b2a">
-<title>چشم سوم | خدمات حفاظتی و برق ساختمان</title>
+<meta name="theme-color" content="#102536">
+<title>چشم سوم | نگهبان همیشه بیدار</title>
+<meta name="description" content="خدمات دوربین مداربسته، دزدگیر اماکن، اعلام حریق، خانه هوشمند و سیم‌کشی ساختمان در مشهد.">
 <style>
+:root{--navy:#102536;--teal:#16c8bb;--ink:#172b3a;--muted:#61717e;--white:#fff;--bg:#f3f8fa}
 *{box-sizing:border-box}
-body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f3f7fa;color:#172536;line-height:1.9}
-header{background:linear-gradient(135deg,#101b2a,#124e60);color:white;padding:28px 16px;text-align:center}
-.logo{font-size:30px;font-weight:bold;color:#61eee0}
-header p{margin:4px 0}
-.container{max-width:850px;margin:auto;padding:18px}
-h2{font-size:22px}
-.intro{text-align:center;padding:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}
-.service{border:0;border-radius:16px;padding:20px 10px;text-align:center;cursor:pointer;color:#172536;font-family:inherit;box-shadow:0 4px 14px #15283b16;min-height:130px}
-.service strong{display:block;font-size:17px}
-.service span{font-size:28px;display:block}
-.s1{background:#d9f5eb}.s2{background:#ffe3df}.s3{background:#fff0c9}
-.s4{background:#dff0ff}.s5{background:#eee4ff}
-.panel{background:white;padding:20px;border-radius:18px;box-shadow:0 5px 20px #10203012;margin:15px 0}
-.hidden{display:none}
-button,.btn{font-family:inherit;cursor:pointer;border:0;border-radius:10px;padding:12px 16px;font-size:15px;text-decoration:none;display:inline-block}
-.primary{background:#087f78;color:white;width:100%;margin-top:14px}
-.back{background:#e7edf2;color:#172536;margin-bottom:12px}
-label{display:block;font-weight:bold;margin-top:14px}
-input,select,textarea{width:100%;padding:12px;border:1px solid #ccd6df;border-radius:9px;font:inherit;background:white}
-.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.links a{background:#e3f4f2;color:#075e59}
-footer{text-align:center;padding:24px;color:#526170;font-size:13px}
-.note{font-size:13px;color:#5b6976}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.9}
+button,input,select,textarea{font:inherit}
+a{color:inherit}
+header{background:linear-gradient(130deg,#102536,#155466);color:white;padding:17px 18px}
+.nav{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{font-size:25px;font-weight:bold;color:#65f1df}
+.brand small{display:block;font-size:11px;color:#e3ffff;font-weight:normal}
+.navlinks{display:flex;gap:8px;flex-wrap:wrap}
+.navlinks a{color:white;text-decoration:none;padding:7px 10px;border-radius:8px;font-size:13px}
+.navlinks a:hover{background:#ffffff20}
+main{max-width:1050px;margin:auto;padding:20px 16px 35px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#102536,#176b76);color:white;border-radius:25px;padding:35px 25px;margin:8px 0 25px}
+.hero:after{content:"";position:absolute;width:210px;height:210px;border:35px solid #6af3dc22;border-radius:50%;left:-55px;top:-70px}
+.eyebrow{color:#71f2df;font-size:13px;font-weight:bold}
+.hero h1{font-size:clamp(27px,5vw,43px);line-height:1.6;margin:8px 0}
+.hero p{max-width:600px;color:#e2f5f5}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 17px;text-decoration:none;font-weight:bold;cursor:pointer;text-align:center}
+.btn-light{background:#6bf0dc;color:#102536}
+.btn-outline{border:1px solid #ffffff70;color:white;margin-right:7px}
+.section-title{margin:25px 0 5px;font-size:23px}
+.sub{margin:0 0 17px;color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.service-card{display:block;position:relative;overflow:hidden;min-height:205px;padding:20px;border-radius:20px;text-decoration:none;color:var(--ink);border:1px solid #dfe9ee;transition:transform .2s,box-shadow .2s}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 12px 25px #16344816}
+.service-card .symbol{font-size:35px;display:block}
+.service-card h3{margin:7px 0;font-size:19px}
+.service-card p{font-size:13px;color:#425665;margin:0 0 13px}
+.service-card .more{font-size:13px;font-weight:bold}
+.cctv{--accent:#178c68;background:linear-gradient(140deg,#e0f8ed,#bcebd9)}
+.alarm{--accent:#c74740;background:linear-gradient(140deg,#fff0e8,#ffd9d1)}
+.fire{--accent:#a86a00;background:linear-gradient(140deg,#fff5d8,#ffe5a2)}
+.smart{--accent:#246baf;background:linear-gradient(140deg,#e9f5ff,#cce8ff)}
+.wiring{--accent:#7450ad;background:linear-gradient(140deg,#f3eaff,#e0d0ff)}
+.service-card .more{color:var(--accent)}
+.panel{background:white;border:1px solid #e3ebef;border-radius:19px;padding:22px;margin-top:20px}
+.benefits{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.benefit{background:#f1f8f8;border-radius:13px;padding:14px}
+.benefit b{display:block}
+.benefit span{font-size:13px;color:var(--muted)}
+.contact-row{display:flex;flex-wrap:wrap;gap:10px}
+.contact-row a{flex:1;min-width:140px}
+.call{background:#e6f4ff;color:#135b83}
+.wa{background:#dff8e9;color:#126b3c}
+.ig{background:#fbe8f1;color:#a32965}
+.hidden{display:none!important}
+.back{background:#e9f0f4;color:#1a3445;margin-bottom:15px}
+.service-hero{border-radius:23px;padding:25px;margin-bottom:17px}
+.service-hero .symbol{font-size:42px}
+.service-hero h1{font-size:clamp(25px,5vw,36px);margin:5px 0}
+.service-hero p{margin:5px 0}
+.service-hero.cctv{background:linear-gradient(130deg,#dff8eb,#bcebd9)}
+.service-hero.alarm{background:linear-gradient(130deg,#fff0e8,#ffd9d1)}
+.service-hero.fire{background:linear-gradient(130deg,#fff5d8,#ffe5a2)}
+.service-hero.smart{background:linear-gradient(130deg,#e9f5ff,#cce8ff)}
+.service-hero.wiring{background:linear-gradient(130deg,#f3eaff,#e0d0ff)}
+form label{display:block;font-weight:bold;margin:13px 0 5px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ccd9e0;border-radius:10px;background:white;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid #8de4dc;border-color:#159b91}
+.submit{background:#087e77;color:white;width:100%;margin-top:17px}
+.note{font-size:12px;color:var(--muted)}
+footer{background:#102536;color:#e4f2f4;padding:25px 16px;text-align:center;font-size:13px}
+footer a{color:#72e9dc}
+@media(max-width:520px){.hero{padding:27px 19px}.panel{padding:17px}.nav{align-items:flex-start}.navlinks{width:100%}.service-card{min-height:180px}}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="logo">چشم سوم</div>
-  <p>نگهبان همیشه بیدار</p>
-  <p>خدمات حفاظتی و برق ساختمان در مشهد</p>
+  <div class="nav">
+    <a href="#home" class="brand" onclick="goHome()" style="text-decoration:none">
+      چشم سوم
+      <small>نگهبان همیشه بیدار</small>
+    </a>
+    <nav class="navlinks">
+      <a href="#home" onclick="goHome()">صفحه اصلی</a>
+      <a href="#services" onclick="goHome()">خدمات</a>
+      <a href="#contact" onclick="goHome()">تماس با ما</a>
+    </nav>
+  </div>
 </header>
 
-<main class="container">
+<main>
 <section id="home">
-  <div class="intro">
-    <h2>خدمات چشم سوم</h2>
-    <p>خدمت موردنظرت رو انتخاب کن تا وارد صفحه اختصاصی مشاوره بشی.</p>
+  <div class="hero">
+    <span class="eyebrow">امنیت، آسایش، اطمینان</span>
+    <h1>امنیت محل شما<br>از یک انتخاب درست شروع می‌شود.</h1>
+    <p>برای انتخاب سیستم مناسب، نیازت رو مشخص کن و مشاوره اولیه بگیر.</p>
+    <a class="btn btn-light" href="#services">مشاهده خدمات ←</a>
+    <a class="btn btn-outline" href="https://wa.me/989981214662">گفت‌وگو در واتساپ</a>
   </div>
+
+  <h2 class="section-title" id="services">خدمات چشم سوم</h2>
+  <p class="sub">برای دیدن جزئیات و ثبت درخواست مشاوره، خدمت موردنظرت رو انتخاب کن.</p>
+
   <div class="grid">
-    <button class="service s1" onclick="openService('cctv')"><span>📹</span><strong>دوربین مداربسته</strong><small>مشاوره و نصب</small></button>
-    <button class="service s2" onclick="openService('alarm')"><span>🚨</span><strong>دزدگیر اماکن</strong><small>حفاظت از محل</small></button>
-    <button class="service s3" onclick="openService('fire')"><span>🔥</span><strong>اعلام حریق</strong><small>تشخیص و هشدار</small></button>
-    <button class="service s4" onclick="openService('smart')"><span>💡</span><strong>خانه هوشمند</strong><small>کنترل هوشمند</small></button>
-    <button class="service s5" onclick="openService('wiring')"><span>⚡</span><strong>سیم‌کشی ساختمان</strong><small>اجرای اصولی برق</small></button>
+    <a class="service-card cctv" href="#cctv" onclick="openService('cctv');return false">
+      <span class="symbol">📹</span>
+      <h3>دوربین مداربسته</h3>
+      <p>بررسی نقاط مهم، انتخاب دوربین و مشاهده تصاویر از راه دور.</p>
+      <span class="more">مشاهده خدمت و مشاوره ←</span>
+    </a>
+    <a class="service-card alarm" href="#alarm" onclick="openService('alarm');return false">
+      <span class="symbol">🚨</span>
+      <h3>دزدگیر اماکن</h3>
+      <p>راهکارهای هشدار و حفاظت برای خانه، فروشگاه و محل کار.</p>
+      <span class="more">مشاهده خدمت و مشاوره ←</span>
+    </a>
+    <a class="service-card fire" href="#fire" onclick="openService('fire');return false">
+      <span class="symbol">🔥</span>
+      <h3>اعلام حریق</h3>
+      <p>بررسی نیاز محل به تشخیص و هشدار حریق.</p>
+      <span class="more">مشاهده خدمت و مشاوره ←</span>
+    </a>
+    <a class="service-card smart" href="#smart" onclick="openService('smart');return false">
+      <span class="symbol">💡</span>
+      <h3>خانه و ساختمان هوشمند</h3>
+      <p>بررسی راهکارهای کنترل روشنایی و امکانات هوشمند.</p>
+      <span class="more">مشاهده خدمت و مشاوره ←</span>
+    </a>
+    <a class="service-card wiring" href="#wiring" onclick="openService('wiring');return false">
+      <span class="symbol">⚡</span>
+      <h3>سیم‌کشی ساختمان</h3>
+      <p>سیم‌کشی، بازسازی برق و اجرای روشنایی ساختمان.</p>
+      <span class="more">مشاهده خدمت و مشاوره ←</span>
+    </a>
   </div>
+
   <section class="panel">
+    <h2>چرا مشاوره اولیه؟</h2>
+    <div class="benefits">
+      <div class="benefit"><b>🎯 متناسب با نیاز شما</b><span>ابتدا نیاز پروژه مشخص می‌شود.</span></div>
+      <div class="benefit"><b>📍 محدوده فعالیت</b><span>مشهد و شهرهای خراسان رضوی.</span></div>
+      <div class="benefit"><b>💬 ارتباط مستقیم</b><span>درخواستت رو از طریق واتساپ ارسال کن.</span></div>
+    </div>
+  </section>
+
+  <section class="panel" id="contact">
     <h2>ارتباط با چشم سوم</h2>
-    <div class="links">
-      <a class="btn" href="tel:+989981214662">📞 تماس تلفنی</a>
-      <a class="btn" href="https://wa.me/989981214662">واتساپ</a>
-      <a class="btn" href="https://www.instagram.com/cheshme3sevoom/" target="_blank" rel="noopener">اینستاگرام</a>
+    <p>برای راهنمایی و هماهنگی با ما در ارتباط باش.</p>
+    <div class="contact-row">
+      <a class="btn call" href="tel:+989981214662">📞 تماس تلفنی</a>
+      <a class="btn wa" href="https://wa.me/989981214662">واتساپ</a>
+      <a class="btn ig" href="https://www.instagram.com/cheshme3sevoom/" target="_blank" rel="noopener">اینستاگرام</a>
     </div>
   </section>
 </section>
 
 <section id="servicePage" class="hidden">
-  <button class="back" onclick="goHome()">→ بازگشت به خدمات</button>
-  <div class="panel">
-    <h2 id="serviceTitle"></h2>
+  <button class="btn back" type="button" onclick="goHome()">→ بازگشت به صفحه اصلی</button>
+  <div id="serviceHero" class="service-hero">
+    <span id="serviceIcon" class="symbol"></span>
+    <h1 id="serviceTitle"></h1>
     <p id="serviceDescription"></p>
-    <h3>مشاوره اولیه</h3>
-    <p>چند مورد رو مشخص کن تا درخواستت برای ما آماده بشه.</p>
+  </div>
+  <section class="panel">
+    <h2>مشاوره اولیه</h2>
+    <p>چند مورد رو انتخاب کن تا درخواستت متناسب با نیازت آماده بشه.</p>
     <form id="consultForm">
       <label for="place">نوع محل پروژه</label>
       <select id="place" required>
@@ -82,94 +179,127 @@ footer{text-align:center;padding:24px;color:#526170;font-size:13px}
         <option>ساختمان تجاری</option>
         <option>سایر موارد</option>
       </select>
+
       <label for="city">محل پروژه</label>
       <select id="city" required>
         <option value="">انتخاب کن</option>
         <option>مشهد</option>
         <option>سایر شهرهای خراسان رضوی</option>
       </select>
-      <label for="need">چه خدمتی نیاز داری؟</label>
-      <select id="need" required></select>
+
+      <label for="need">نیاز اصلی شما</label>
+      <select id="need" required>
+        <option value="">ابتدا یک گزینه انتخاب کن</option>
+      </select>
+
       <label for="details">توضیحات بیشتر (اختیاری)</label>
       <textarea id="details" rows="3" placeholder="مثلاً متراژ، تعداد دوربین یا مشکل فعلی..."></textarea>
+
       <label for="customer">نام شما (اختیاری)</label>
-      <input id="customer" placeholder="نام و نام خانوادگی">
-      <button type="submit" class="primary">ارسال درخواست از طریق واتساپ</button>
-      <p class="note">با زدن دکمه، واتساپ باز می‌شود و متن درخواست آماده خواهد شد؛ برای ارسال نهایی، پیام را در واتساپ بفرست.</p>
+      <input id="customer" maxlength="100" placeholder="نام و نام خانوادگی">
+
+      <button type="submit" class="btn submit">ارسال درخواست در واتساپ</button>
+      <p class="note">واتساپ باز می‌شود و متن درخواست آماده خواهد بود. برای نهایی‌شدن، پیام را خودت ارسال کن.</p>
     </form>
-  </div>
+  </section>
+  <section class="panel">
+    <h3>ارتباط مستقیم</h3>
+    <div class="contact-row">
+      <a class="btn call" href="tel:+989981214662">📞 تماس تلفنی</a>
+      <a class="btn wa" href="https://wa.me/989981214662">واتساپ</a>
+    </div>
+  </section>
 </section>
 </main>
 
 <footer>
-  چشم سوم، نگهبان همیشه بیدار<br>
+  <strong>چشم سوم | نگهبان همیشه بیدار</strong><br>
   به مدیریت حاجی‌آبادی | محدوده مشهد<br>
   <a href="tel:+989981214662">09981214662</a>
 </footer>
 
 <script>
 const services={
-cctv:{
-title:"دوربین مداربسته",
-description:"برای انتخاب دوربین مناسب، پوشش نقاط مهم و مشاهده تصاویر، درخواست مشاوره ثبت کن.",
-options:["نصب دوربین جدید","ارتقای دوربین‌های فعلی","مشاهده تصاویر از راه دور","رفع مشکل دوربین یا دستگاه","بازدید و مشاوره"]
-},
-alarm:{
-title:"دزدگیر اماکن",
-description:"برای حفاظت از خانه، فروشگاه، شرکت یا محل کار، نیازت رو مشخص کن.",
-options:["نصب دزدگیر جدید","ارتقای سیستم فعلی","اتصال به تلفن همراه","رفع خرابی دزدگیر","بازدید و مشاوره"]
-},
-fire:{
-title:"سیستم اعلام حریق",
-description:"برای بررسی نیاز محل به سیستم تشخیص و هشدار حریق، درخواست مشاوره ثبت کن.",
-options:["اجرای سیستم جدید","بررسی سیستم موجود","سرویس یا رفع خرابی","مشاوره برای ساختمان","بازدید از محل"]
-},
-smart:{
-title:"خانه و ساختمان هوشمند",
-description:"برای کنترل روشنایی و امکانات هوشمند ساختمان، نیازت رو انتخاب کن.",
-options:["هوشمندسازی ساختمان","کنترل روشنایی","کنترل با تلفن همراه","ارتقای سیستم فعلی","بازدید و مشاوره"]
-},
-wiring:{
-title:"سیم‌کشی ساختمان",
-description:"برای سیم‌کشی ساختمان، بررسی برق یا اجرای روشنایی، درخواستت رو ثبت کن.",
-options:["سیم‌کشی ساختمان جدید","بازسازی سیم‌کشی","برق‌کشی واحد تجاری","اجرای روشنایی","بازدید و برآورد کار"]
-}
+  cctv:{
+    title:"دوربین مداربسته",icon:"📹",theme:"cctv",
+    description:"برای انتخاب دوربین، پوشش نقاط مهم و مشاهده تصاویر از راه دور، درخواست مشاوره ثبت کن.",
+    options:["نصب دوربین جدید","ارتقای دوربین‌های فعلی","مشاهده تصاویر از راه دور","رفع مشکل دوربین یا دستگاه","بازدید و مشاوره"]
+  },
+  alarm:{
+    title:"دزدگیر اماکن",icon:"🚨",theme:"alarm",
+    description:"برای حفاظت از خانه، فروشگاه، شرکت یا محل کار، نیازت رو مشخص کن.",
+    options:["نصب دزدگیر جدید","ارتقای سیستم فعلی","اتصال به تلفن همراه","رفع خرابی دزدگیر","بازدید و مشاوره"]
+  },
+  fire:{
+    title:"سیستم اعلام حریق",icon:"🔥",theme:"fire",
+    description:"برای بررسی نیاز ساختمان یا محل کار به سیستم تشخیص و هشدار حریق، مشاوره بگیر.",
+    options:["اجرای سیستم جدید","بررسی سیستم موجود","سرویس یا رفع خرابی","مشاوره برای ساختمان","بازدید از محل"]
+  },
+  smart:{
+    title:"خانه و ساختمان هوشمند",icon:"💡",theme:"smart",
+    description:"برای بررسی امکانات هوشمند و کنترل تجهیزات ساختمان، نیازت رو انتخاب کن.",
+    options:["هوشمندسازی ساختمان","کنترل روشنایی","کنترل با تلفن همراه","ارتقای سیستم فعلی","بازدید و مشاوره"]
+  },
+  wiring:{
+    title:"سیم‌کشی ساختمان",icon:"⚡",theme:"wiring",
+    description:"برای سیم‌کشی ساختمان، بازسازی برق یا اجرای روشنایی، درخواست مشاوره ثبت کن.",
+    options:["سیم‌کشی ساختمان جدید","بازسازی سیم‌کشی","برق‌کشی واحد تجاری","اجرای روشنایی","بازدید و برآورد کار"]
+  }
 };
 let currentService="";
 function openService(id){
-currentService=id;
-const s=services[id];
-document.getElementById("home").classList.add("hidden");
-document.getElementById("servicePage").classList.remove("hidden");
-document.getElementById("serviceTitle").textContent=s.title;
-document.getElementById("serviceDescription").textContent=s.description;
-const need=document.getElementById("need");
-need.innerHTML='<option value="">انتخاب کن</option>';
-s.options.forEach(item=>{
-const option=document.createElement("option");
-option.textContent=item;
-need.appendChild(option);
-});
-window.scrollTo(0,0);
+  if(!services[id])return;
+  currentService=id;
+  const s=services[id];
+  document.getElementById("home");
+  document.getElementById("serviceTitle").textContent=s.title;
+  document.getElementById("serviceIcon").textContent=s.icon;
+  document.getElementById("serviceDescription").textContent=s.description;
+  document.getElementById("serviceHero").className="service-hero "+s.theme;
+  const need=document.getElementById("need");
+  need.replaceChildren();
+  const first=document.createElement("option");
+  first.value="";
+  first.textContent="انتخاب کن";
+  need.appendChild(first);
+  s.options.forEach(text=>{
+    const option=document.createElement("option");
+    option.value=text;
+    option.textContent=text;
+    need.appendChild(option);
+  });
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("servicePage").classList.remove("hidden");
+  history.replaceState(null,"","#"+id);
+  window.scrollTo(0,0);
 }
 function goHome(){
-document.getElementById("servicePage").classList.add("hidden");
-document.getElementById("home").classList.remove("hidden");
-window.scrollTo(0,0);
+  document.getElementById("servicePage").classList.add("hidden");
+  document.getElementById("home").classList.remove("hidden");
+  history.replaceState(null,"",location.pathname+location.search);
+  window.scrollTo(0,0);
 }
 document.getElementById("consultForm").addEventListener("submit",function(e){
-e.preventDefault();
-const s=services[currentService];
-const message=
-"سلام، برای خدمات چشم سوم درخواست مشاوره دارم.%0A"+
-"خدمت: "+encodeURIComponent(s.title)+"%0A"+
-"نوع محل: "+encodeURIComponent(document.getElementById("place").value)+"%0A"+
-"محل پروژه: "+encodeURIComponent(document.getElementById("city").value)+"%0A"+
-"نیاز: "+encodeURIComponent(document.getElementById("need").value)+"%0A"+
-"توضیحات: "+encodeURIComponent(document.getElementById("details").value||"ندارد")+"%0A"+
-"نام: "+encodeURIComponent(document.getElementById("customer").value||"ذکر نشده");
-window.location.href="https://wa.me/989981214662?text="+message;
+  e.preventDefault();
+  if(!currentService||!services[currentService])return;
+  const s=services[currentService];
+  const lines=[
+    "سلام، برای خدمات چشم سوم درخواست مشاوره دارم.",
+    "خدمت: "+s.title,
+    "نوع محل: "+document.getElementById("place").value,
+    "محل پروژه: "+document.getElementById("city").value,
+    "نیاز: "+document.getElementById("need").value,
+    "توضیحات: "+(document.getElementById("details").value||"ندارد"),
+    "نام: "+(document.getElementById("customer").value||"ذکر نشده")
+  ];
+  const url="https://wa.me/989981214662?text="+encodeURIComponent(lines.join("\n"));
+  window.location.href=url;
 });
+function loadHash(){
+  const id=location.hash.replace("#","");
+  if(services[id])openService(id);
+}
+window.addEventListener("load",loadHash);
 </script>
 </body>
 </html>
