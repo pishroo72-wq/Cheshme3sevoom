@@ -3,246 +3,540 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081827">
 <title>چشم سوم | نگهبان همیشه بیدار</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap');
-:root{--navy:#071b2b;--navy2:#0c3040;--green:#079c60;--cyan:#18d5d0;--gold:#f1c83d;--white:#fff}
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+:root{
+ --bg:#071522;--panel:#102538;--panel2:#142f43;
+ --cyan:#21d4d0;--gold:#e8b95b;--white:#f5f8fa;
+ --muted:#a9bac6;--line:#294354;--radius:20px;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--navy);color:var(--white);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9}
-button,a{font:inherit}
-a{text-decoration:none;color:inherit}
-.wrap{width:min(1100px,93%);margin:auto}
-header{background:#061522f5;border-bottom:1px solid #244354;position:sticky;top:0;z-index:10}
-nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:25px;font-weight:900;color:var(--gold)}
-.logo span{color:white}
-nav a:last-child{background:var(--green);padding:7px 15px;border-radius:25px}
-.hero{padding:65px 0;background:linear-gradient(90deg,#061522ed,#06152280),url('images/hero-building.jpg') center/cover}
-.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.4;margin:8px 0}
-.gold{color:var(--gold)}
-.hero p{color:#d8e4e9;max-width:600px}
-.btn{border:0;border-radius:9px;background:var(--green);color:white;padding:11px 22px;display:inline-block;font-weight:800;cursor:pointer}
-.btn.alt{background:transparent;border:1px solid var(--cyan)}
-section{padding:48px 0}
-.heading{text-align:center;margin-bottom:25px}
-.heading small{color:var(--cyan)}
-.heading h2{font-size:27px;margin:5px}
-.heading p{color:#b8cbd4;margin:0}
-.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
-.card{background:var(--navy2);border:1px solid #315466;border-radius:14px;overflow:hidden}
-.card img{width:100%;height:140px;object-fit:cover}
-.card h3{font-size:16px;margin:8px 12px}
-.card p{font-size:12px;color:#c3d3db;margin:0 12px 12px}
-.card button{margin:0 12px 14px;width:calc(100% - 24px)}
-button:hover,.btn:hover{filter:brightness(1.12)}
-/* صفحه کارت تخصصی */
-#detail{display:none;background:#f5f7ef;color:#102b39;padding:0 0 35px}
-.detail-hero{position:relative;min-height:390px;background:#102b39;display:flex;align-items:center;color:white;overflow:hidden}
-.detail-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.detail-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#061522eF,#06152265)}
-.detail-title{position:relative;z-index:1;padding:45px 5%;max-width:650px}
-.detail-title h1{font-size:clamp(30px,5vw,48px);margin:5px 0;color:var(--gold)}
-.detail-title p{font-size:17px}
-.detail-body{width:min(1050px,93%);margin:25px auto}
-.benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;background:white;padding:15px;border-radius:15px;box-shadow:0 5px 20px #102b3914}
-.benefit{text-align:center;padding:8px;border-left:1px solid #ddd}
-.benefit:last-child{border:0}
-.benefit b{display:block;color:#087b58}
-.benefit span{font-size:12px}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
-.info-box{background:white;border:1px solid #dce5dc;border-radius:15px;padding:23px}
-.info-box h2{color:#087b58;margin-top:0}
-.info-box p{color:#344d58}
-.steps{display:flex;gap:10px;align-items:center;margin:12px 0}
-.step-icon{width:38px;height:38px;border-radius:50%;background:#078c58;color:white;display:grid;place-items:center;font-weight:bold}
-.detail-contact{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
-.detail-contact a{background:#073c3d;color:white;text-align:center;padding:13px;border-radius:30px}
-.back{margin:20px 0}
-#consult{display:none;background:#0b2638;padding:25px 0}
-.formbox{width:min(760px,93%);margin:auto;background:#102e40;border:1px solid #315466;border-radius:15px;padding:22px}
-.formbox h2{color:var(--cyan);margin-top:0}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.field{margin:8px 0}
-.field.full{grid-column:1/-1}
-.field label{display:block;font-size:14px}
-.field input,.field select,.field textarea{width:100%;padding:10px;border-radius:8px;background:#061522;border:1px solid #456173;color:white;font-family:inherit}
-.question{padding:12px 0;border-bottom:1px solid #315466}
-.question p{margin:0 0 6px;font-weight:600}
-.question label{display:inline-block;background:#183b4d;padding:4px 9px;border-radius:7px;margin:3px;font-size:13px}
-.question input{accent-color:var(--green)}
-footer{text-align:center;background:#040e17;color:#c4d1d7;padding:25px}
-#home,#detail,#consult{scroll-margin-top:75px}
-@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.card:last-child{grid-column:span 2}.benefits{grid-template-columns:repeat(3,1fr)}.detail-grid{grid-template-columns:1fr}}
-@media(max-width:520px){nav{height:62px}.logo{font-size:21px}.hero{padding:45px 0}.cards{gap:9px}.card img{height:105px}.card h3{font-size:14px}.benefits{grid-template-columns:repeat(2,1fr)}.benefit{border:0}.detail-contact{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.detail-hero{min-height:330px}}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);
+ font-family:'Vazirmatn',Tahoma,sans-serif;line-height:1.9}
+button,input,textarea,select{font:inherit}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:#071522ed;
+ border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{min-height:76px;display:flex;align-items:center;
+ justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.brand img{width:54px;height:54px;object-fit:contain}
+.brand small{display:block;color:var(--gold);font-size:11px;font-weight:400}
+.navlinks{display:flex;gap:20px;align-items:center;font-size:14px}
+.navlinks a:hover{color:var(--cyan)}
+.menu-btn{display:none;background:none;color:white;border:0;font-size:25px}
+.hero{padding:75px 0 65px;overflow:hidden;
+ background:radial-gradient(ellipse at 80% 20%,#17475a 0,transparent 45%),
+ linear-gradient(120deg,#071522,#0b2536)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:35px;align-items:center}
+.eyebrow{color:var(--cyan);font-weight:700}
+h1{font-size:clamp(32px,5vw,57px);line-height:1.5;margin:12px 0}
+h1 span{color:var(--gold)}
+.hero p{color:var(--muted);max-width:620px}
+.hero-image{width:100%;max-height:360px;object-fit:contain;border-radius:24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;
+ border:0;border-radius:12px;padding:12px 22px;font-weight:700;
+ transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--cyan);color:#06212a}
+.gold{background:var(--gold);color:#1b1b1b}
+.outline{border:1px solid var(--cyan);color:var(--cyan);background:transparent}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+section{padding:65px 0}
+.section-title{text-align:center;margin-bottom:32px}
+.section-title h2{font-size:30px;margin:0 0 8px}
+.section-title p{color:var(--muted);margin:0}
+.services{display:grid;grid-template-columns:repeat( auto-fit,minmax(210px,1fr));gap:18px}
+.service-card{background:var(--panel);border:1px solid var(--line);
+ border-radius:var(--radius);overflow:hidden;transition:.25s}
+.service-card:hover{transform:translateY(-5px);border-color:var(--cyan)}
+.service-card img{width:100%;height:160px;object-fit:cover;background:#183347}
+.service-content{padding:18px}
+.service-content h3{margin:0 0 7px;color:var(--gold)}
+.service-content p{font-size:13px;color:var(--muted);min-height:52px}
+.service-content button{width:100%}
+.about{background:#0b1e2d}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.about p{color:var(--muted)}
+.feature{background:var(--panel);border:1px solid var(--line);
+ border-radius:14px;padding:14px;margin:10px 0}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+.contact-item{background:var(--panel);padding:20px;border-radius:16px;
+ border:1px solid var(--line)}
+.contact-item strong{color:var(--cyan);display:block}
+footer{padding:25px 0;background:#04101a;text-align:center;color:var(--muted);font-size:13px}
+
+/* فرم مشاوره */
+.form-area{display:none;min-height:75vh;padding:35px 0 70px}
+.form-area.active{display:block}
+.home-area.hidden{display:none}
+.form-shell{max-width:850px;margin:auto;background:var(--panel);
+ border:1px solid var(--line);border-radius:22px;padding:clamp(16px,4vw,32px)}
+.form-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.form-top h2{margin:0;color:var(--gold)}
+.progress{height:8px;background:#263f50;border-radius:20px;margin:20px 0;overflow:hidden}
+.progress-bar{height:100%;width:0;background:var(--cyan);transition:.3s}
+.step-label{color:var(--muted);font-size:13px}
+.question{background:#0b1e2d;border:1px solid var(--line);
+ border-radius:15px;padding:16px;margin:14px 0}
+.question h3{font-size:15px;margin:0 0 12px}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.option{display:flex;align-items:center;gap:9px;padding:10px;
+ border:1px solid #345064;border-radius:10px;cursor:pointer;font-size:13px}
+.option:has(input:checked){border-color:var(--cyan);background:#123b49}
+.option input{accent-color:var(--cyan);width:17px;height:17px;flex-shrink:0}
+.form-nav{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+.form-nav button{min-width:110px}
+.field{margin:14px 0}
+.field label{display:block;margin-bottom:6px;font-size:14px}
+.field input,.field textarea,.field select{
+ width:100%;padding:12px;border:1px solid #385367;border-radius:10px;
+ background:#081a28;color:white;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--cyan)}
+.field textarea{min-height:95px;resize:vertical}
+.notice{color:var(--muted);font-size:12px}
+.back-home{margin-bottom:18px}
+@media(max-width:750px){
+ .hero-grid,.about-grid{grid-template-columns:1fr}
+ .hero{text-align:center;padding:45px 0}
+ .hero p{margin:auto}
+ .hero-image{max-height:230px}
+ .navlinks{display:none;position:absolute;top:76px;right:0;left:0;
+ background:#071522;padding:20px;flex-direction:column;border-bottom:1px solid var(--line)}
+ .navlinks.open{display:flex}
+ .menu-btn{display:block}
+}
+@media(max-width:480px){
+ .options{grid-template-columns:1fr}
+ .section-title h2{font-size:24px}
+ .form-nav button{min-width:0;flex:1}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap"><nav>
-<a class="logo" href="#" onclick="showHome()">چشم <span>سوم</span></a>
-<a href="tel:+989981214662">تماس 09981214662</a>
-</nav></div></header>
 
-<main id="home">
-<div class="hero"><div class="wrap">
-<small style="color:var(--cyan)">خدمات تخصصی امنیت و برق ساختمان در مشهد</small>
-<h1>چشم سوم؛<br><span class="gold">نگهبان همیشه بیدار</span></h1>
-<p>امنیت، آسایش و هوشمندسازی ساختمان با اجرای اصولی و مشاوره تخصصی.</p>
-<a class="btn" href="#services">مشاهده خدمات</a>
-</div></div>
-<section id="services"><div class="wrap">
-<div class="heading"><small>خدمات چشم سوم</small><h2>خدمت موردنظرتان را انتخاب کنید</h2><p>برای دیدن کارت تخصصی هر خدمت روی آن بزنید.</p></div>
-<div class="cards" id="cards"></div>
-</div></section>
-</main>
+<header>
+ <div class="container nav">
+  <a class="brand" href="#" onclick="showHome();return false">
+   <img src="images/logo.png" alt="لوگوی چشم سوم">
+   <span>چشم سوم<small>نگهبان همیشه بیدار</small></span>
+  </a>
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="منو">☰</button>
+  <nav class="navlinks" id="navlinks">
+   <a href="#home" onclick="showHome()">صفحه اصلی</a>
+   <a href="#services" onclick="showHome()">خدمات</a>
+   <a href="#about" onclick="showHome()">درباره ما</a>
+   <a href="#contact" onclick="showHome()">تماس با ما</a>
+  </nav>
+ </div>
+</header>
 
-<!-- صفحه اختصاصی هر خدمت -->
-<section id="detail">
-<div class="detail-hero">
-<img id="detailImage" src="" alt="">
-<div class="detail-title">
-<div style="color:var(--cyan)">چشم سوم | نگهبان همیشه بیدار</div>
-<h1 id="detailTitle"></h1>
-<p id="detailSubtitle"></p>
-<button class="btn" onclick="showConsult()">مشاوره اولیه این خدمت</button>
-</div></div>
-<div class="detail-body">
-<div class="benefits" id="benefits"></div>
-<div class="detail-grid">
-<div class="info-box">
-<h2 id="infoTitle"></h2>
-<p id="infoText"></p>
-<div style="background:#fff3bd;color:#233b43;border-radius:30px;padding:8px 15px;text-align:center;font-weight:bold">مشاوره اولیه، سریع و دقیق</div>
-</div>
-<div class="info-box">
-<h2>مراحل دریافت مشاوره</h2>
-<div class="steps"><div class="step-icon">۱</div><div>پاسخ به سؤالات چهارگزینه‌ای</div></div>
-<div class="steps"><div class="step-icon">۲</div><div>تکمیل اطلاعات تماس و پروژه</div></div>
-<div class="steps"><div class="step-icon">۳</div><div>ارسال پاسخ‌ها از طریق واتساپ</div></div>
-<button class="btn" style="width:100%;margin-top:12px" onclick="showConsult()">شروع مشاوره اولیه</button>
-</div></div>
-<div class="detail-contact">
-<a href="tel:+989981214662">☎ تماس مستقیم</a>
-<a href="https://wa.me/989981214662">واتساپ</a>
-<a href="https://www.instagram.com/cheshme3sevoom/">اینستاگرام</a>
-</div>
-<button class="btn alt back" onclick="showHome()">بازگشت به خدمات</button>
-</div>
-</section>
+<div class="home-area" id="homeArea">
+ <main>
+  <div class="hero" id="home">
+   <div class="container hero-grid">
+    <div>
+     <div class="eyebrow">امنیت، تخصص و آرامش</div>
+     <h1>چشم سوم، <span>نگهبان همیشه بیدار</span></h1>
+     <p>طراحی، مشاوره و اجرای سیستم‌های حفاظتی، نظارتی و برق ساختمان در مشهد و خراسان رضوی. امنیت خانه و محل کار شما، تخصص ماست.</p>
+     <div class="actions">
+      <a class="btn primary" href="#services">مشاهده خدمات</a>
+      <a class="btn outline" href="tel:+989981214662">تماس مستقیم</a>
+     </div>
+    </div>
+    <img class="hero-image" src="images/hero.jpg" alt="خدمات تخصصی چشم سوم">
+   </div>
+  </div>
 
-<!-- فرم مشاوره -->
-<section id="consult">
-<div class="formbox">
-<button class="btn alt" onclick="hideConsult()">بازگشت به کارت خدمت</button>
-<h2 id="formTitle">مشاوره اولیه</h2>
-<p>لطفاً اطلاعات را وارد کنید. پاسخ‌ها برای ارسال در واتساپ آماده می‌شوند.</p>
-<form id="form">
-<div class="fields">
-<div class="field"><label>نام و نام خانوادگی *</label><input name="name" required></div>
-<div class="field"><label>شماره تماس *</label><input name="phone" required inputmode="tel"></div>
-<div class="field full"><label>آدرس پروژه *</label><input name="address" required></div>
-<div class="field"><label>محدوده پروژه</label><select name="region"><option>مشهد</option><option>سایر شهرهای خراسان رضوی</option><option>خارج از خراسان رضوی</option></select></div>
-<div class="field"><label>روش تماس ترجیحی</label><select name="contact"><option>تماس تلفنی</option><option>واتساپ</option></select></div>
+  <section id="services">
+   <div class="container">
+    <div class="section-title">
+     <h2>خدمات تخصصی چشم سوم</h2>
+     <p>خدمت موردنظرتان را انتخاب کنید و فرم مشاوره را تکمیل کنید.</p>
+    </div>
+    <div class="services" id="serviceCards"></div>
+   </div>
+  </section>
+
+  <section class="about" id="about">
+   <div class="container about-grid">
+    <div>
+     <div class="eyebrow">درباره چشم سوم</div>
+     <h2>امنیت را حرفه‌ای تجربه کنید</h2>
+     <p>چشم سوم با مدیریت حاجی‌آبادی، در زمینه طراحی، مشاوره، تأمین تجهیزات و اجرای پروژه‌های حفاظتی و الکتریکی فعالیت می‌کند.</p>
+     <p>هدف ما ارائه راهکار متناسب با نیاز واقعی هر ساختمان، محیط کاری و پروژه است.</p>
+    </div>
+    <div>
+     <div class="feature">◈ مشاوره و طراحی متناسب با محل پروژه</div>
+     <div class="feature">◈ اجرای تخصصی و اصولی</div>
+     <div class="feature">◈ بررسی نیازها پیش از پیشنهاد تجهیزات</div>
+     <div class="feature">◈ فعالیت در مشهد و خراسان رضوی</div>
+    </div>
+   </div>
+  </section>
+
+  <section id="contact">
+   <div class="container">
+    <div class="section-title">
+     <h2>ارتباط با چشم سوم</h2>
+     <p>برای مشاوره و هماهنگی با ما در تماس باشید.</p>
+    </div>
+    <div class="contact-grid">
+     <a class="contact-item" href="tel:+989981214662">
+      <strong>تماس تلفنی</strong>۰۹۹۸۱۲۱۴۶۶۲
+     </a>
+     <a class="contact-item" href="https://wa.me/989981214662" target="_blank">
+      <strong>واتساپ</strong>ارسال پیام و درخواست مشاوره
+     </a>
+     <a class="contact-item" href="https://www.instagram.com/cheshme3sevom/" target="_blank">
+      <strong>اینستاگرام</strong>@cheshme3sevom
+     </a>
+    </div>
+   </div>
+  </section>
+ </main>
 </div>
-<div id="questions"></div>
-<div class="field"><label>توضیحات تکمیلی</label><textarea name="notes" rows="3"></textarea></div>
-<button class="btn" style="width:100%" type="submit">ارسال پاسخ‌ها در واتساپ</button>
-</form>
+
+<div class="form-area" id="formArea">
+ <div class="container">
+  <button class="btn outline back-home" onclick="showHome()">← بازگشت به صفحه اصلی</button>
+  <div class="form-shell">
+   <div class="form-top">
+    <h2 id="formTitle">فرم مشاوره</h2>
+    <span class="step-label" id="stepLabel"></span>
+   </div>
+   <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+   <p class="notice">برای هر سؤال می‌توانید یک یا چند گزینه را انتخاب کنید. انتخاب گزینه‌ها به معنی ثبت درخواست نهایی نیست.</p>
+   <div id="questionContainer"></div>
+   <div id="customerContainer" hidden>
+    <h3>اطلاعات تماس و مشخصات پروژه</h3>
+    <p class="notice">برای اینکه بتوانیم با شما تماس بگیریم، اطلاعات زیر را وارد کنید.</p>
+    <div class="field">
+     <label for="customerName">نام و نام خانوادگی *</label>
+     <input id="customerName" autocomplete="name" placeholder="نام شما">
+    </div>
+    <div class="field">
+     <label for="customerPhone">شماره تماس *</label>
+     <input id="customerPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="مثلاً ۰۹۱۵۱۲۳۴۵۶۷">
+    </div>
+    <div class="field">
+     <label for="customerAddress">آدرس یا محدوده پروژه</label>
+     <input id="customerAddress" placeholder="شهر، منطقه یا آدرس محل پروژه">
+    </div>
+    <div class="field">
+     <label for="contactMethod">روش پیگیری موردنظر</label>
+     <select id="contactMethod">
+      <option>تماس تلفنی</option>
+      <option>واتساپ</option>
+      <option>پیامک</option>
+     </select>
+    </div>
+    <div class="field">
+     <label for="customerDescription">توضیحات تکمیلی</label>
+     <textarea id="customerDescription" placeholder="اگر توضیح دیگری دارید اینجا بنویسید..."></textarea>
+    </div>
+   </div>
+   <div class="form-nav">
+    <button class="btn outline" id="prevBtn" onclick="previousStep()">مرحله قبل</button>
+    <button class="btn primary" id="nextBtn" onclick="nextStep()">مرحله بعد</button>
+   </div>
+  </div>
+ </div>
 </div>
-</section>
 
 <footer>
-<strong>چشم سوم، نگهبان همیشه بیدار</strong><br>
-به مدیریت حاجی‌آبادی | مشهد و خراسان رضوی<br>
-09981214662
+ <div class="container">
+  چشم سوم | نگهبان همیشه بیدار
+  <br>طراحی، مشاوره و اجرای خدمات حفاظتی و الکتریکی
+ </div>
 </footer>
 
 <script>
-const services=[
-{
-name:"دوربین مداربسته",img:"cctv-card.jpg",subtitle:"نظارت دقیق‌تر، امنیت مطمئن‌تر",
-desc:"طراحی، نصب و راه‌اندازی سیستم دوربین مداربسته متناسب با محل و نیاز پروژه.",
-benefits:["مشاهده زنده از راه دور","پایش شبانه‌روزی","تصویر باکیفیت","نصب اصولی","پشتیبانی نصب"],
-questions:["نوع محل پروژه چیست؟","هدف اصلی نصب دوربین چیست؟","پروژه نوساز است یا فعال؟","چه تعداد دوربین نیاز دارید؟","دوربین داخل ساختمان می‌خواهید یا بیرون؟","دید در شب اهمیت دارد؟","صدابرداری هم نیاز دارید؟","مشاهده تصاویر با موبایل می‌خواهید؟","ضبط تصاویر برای چند روز لازم است؟","دوربین IP مدنظر دارید؟","کابل‌کشی آماده است؟","دستگاه ضبط موجود دارید؟","اینترنت در محل برقرار است؟","انتقال تصویر از راه دور می‌خواهید؟","نقاط مهم برای پوشش کدام‌اند؟","فضای داخلی، بیرونی یا هر دو؟","تجهیزات قبلی قابل استفاده‌اند؟","چه زمانی برای اجرا مناسب است؟","بازدید از محل نیاز دارید؟","توضیح دیگری دارید؟"]
-},
-{
-name:"دزدگیر اماکن",img:"alarm-card.jpg",subtitle:"حفاظت هوشمند از محل کار و زندگی",
-desc:"طراحی و نصب سیستم اعلام سرقت برای افزایش امنیت ساختمان و اماکن.",
-benefits:["اعلان هشدار سریع","کنترل با موبایل","حفاظت ورودی‌ها","باتری پشتیبان","نصب متناسب با محل"],
-questions:["نوع ملک چیست؟","ملک مسکونی است یا تجاری؟","متراژ تقریبی چقدر است؟","چند ورودی و پنجره دارد؟","دزدگیر قبلی دارید؟","سیستم سیمی می‌خواهید یا بی‌سیم؟","تماس هشدار نیاز دارید؟","پیامک هشدار نیاز دارید؟","کنترل با موبایل می‌خواهید؟","چند نفر هشدار دریافت کنند؟","چند بخش مستقل باید حفاظت شود؟","حفاظت فضای بیرونی لازم است؟","چشمی حرکتی نیاز دارید؟","مگنت در و پنجره نیاز دارید؟","آژیر بیرونی لازم است؟","باتری پشتیبان نیاز دارید؟","ملک در حال استفاده است؟","تجهیزات قبلی قابل استفاده‌اند؟","زمان مناسب نصب چه موقع است؟","توضیح دیگری دارید؟"]
-},
-{
-name:"اعلام حریق",img:"fire-card.jpg",subtitle:"تشخیص به‌موقع، آمادگی بیشتر",
-desc:"طراحی و اجرای سیستم اعلام حریق متناسب با نوع کاربری و شرایط ساختمان.",
-benefits:["تشخیص دود و حرارت","اعلان هشدار","پوشش طبقات","طراحی متناسب","اجرای اصولی"],
-questions:["نوع ساختمان چیست؟","کاربری ساختمان چیست؟","چند طبقه دارد؟","متراژ تقریبی هر طبقه چقدر است؟","پروژه نوساز است یا فعال؟","سیستم اعلام حریق قبلی دارد؟","سیستم متعارف می‌خواهید یا آدرس‌پذیر؟","نقشه معماری موجود است؟","نقشه برق موجود است؟","اتاق نگهبانی یا کنترل دارید؟","دتکتور دود نیاز دارید؟","دتکتور حرارت نیاز دارید؟","شستی اعلام حریق لازم است؟","آژیر و فلاشر نیاز دارید؟","اعلان صوتی هم لازم است؟","پارکینگ یا زیرزمین دارد؟","آشپزخانه یا فضای پرخطر دارد؟","الزامات یا تأییدیه خاصی مدنظر است؟","زمان اجرای پروژه چه موقع است؟","توضیح دیگری دارید؟"]
-},
-{
-name:"خانه هوشمند",img:"smart-card.jpg",subtitle:"کنترل آسان‌تر، آسایش بیشتر",
-desc:"هوشمندسازی روشنایی، پرده، سرمایش و گرمایش و سایر تجهیزات ساختمان.",
-benefits:["کنترل روشنایی","مدیریت تجهیزات","کنترل با موبایل","سناریوهای هوشمند","آسایش بیشتر"],
-questions:["نوع ساختمان چیست؟","پروژه در حال ساخت است یا آماده؟","متراژ ساختمان چقدر است؟","کدام بخش‌ها هوشمند شوند؟","کنترل روشنایی نیاز دارید؟","کنترل پرده نیاز دارید؟","کنترل سرمایش و گرمایش می‌خواهید؟","کنترل از طریق موبایل می‌خواهید؟","کنترل صوتی مدنظر است؟","سناریوی خروج از خانه می‌خواهید؟","سناریوی ورود به خانه می‌خواهید؟","اتصال سیستم امنیتی لازم است؟","کلید هوشمند سیمی می‌خواهید یا بی‌سیم؟","زیرساخت برق آماده است؟","اینترنت در محل دارید؟","دستیار صوتی استفاده می‌کنید؟","تجهیزات هوشمند قبلی دارید؟","سطح هوشمندسازی مدنظر چیست؟","زمان مناسب اجرا چه موقع است؟","توضیح دیگری دارید؟"]
-},
-{
-name:"سیم‌کشی ساختمان",img:"wiring-card.jpg",subtitle:"برق‌کشی اصولی، آسودگی خاطر",
-desc:"اجرای سیم‌کشی و برق ساختمان، اصلاح و تکمیل زیرساخت‌های برقی.",
-benefits:["اجرای اصولی مدارها","توجه به ایمنی","تابلو برق","روشنایی و پریز","زیرساخت توسعه"],
-questions:["نوع ساختمان چیست؟","ساختمان نوساز است یا بازسازی؟","چند طبقه یا واحد دارد؟","متراژ تقریبی پروژه چقدر است؟","سیم‌کشی کامل می‌خواهید یا بخشی؟","نقشه برق موجود است؟","لوله‌گذاری انجام شده است؟","تابلو برق نصب شده است؟","تعداد مدارها مشخص است؟","روشنایی و کلید و پریز هم اجرا شود؟","برق آشپزخانه هم اجرا شود؟","سیستم ارت اجرا شده است؟","محافظ جان نیاز دارید؟","شبکه و تلفن هم اجرا شود؟","زیرساخت دوربین یا دزدگیر هم لازم است؟","سیم و تجهیزات تهیه شده‌اند؟","برق سه‌فاز نیاز دارید؟","پروژه در چه مرحله‌ای است؟","چه زمانی برای بازدید مناسب است؟","توضیح دیگری دارید؟"]
-}
-];
+/* مسیر تصاویر: برای تغییر عکس‌ها فقط نام فایل‌های این بخش را عوض کنید. */
+const IMAGE_PATHS={
+ logo:"images/logo.png",
+ hero:"images/hero.jpg",
+ cctv:"images/cctv.jpg",
+ alarm:"images/alarm.jpg",
+ fire:"images/fire.jpg",
+ smart:"images/smart-home.jpg",
+ wiring:"images/wiring.jpg"
+};
 
-let active=0;
-const cards=document.getElementById("cards");
-services.forEach((s,i)=>{
-let el=document.createElement("article");el.className="card";
-el.innerHTML=`<img src="images/${s.img}" alt="${s.name}"><h3>${s.name}</h3><p>${s.desc}</p><button class="btn" onclick="openDetail(${i})">مشاهده کارت تخصصی</button>`;
-cards.appendChild(el);
+/*
+ساختار هر سؤال:
+[متن سؤال، گزینه اول، گزینه دوم، گزینه سوم، گزینه چهارم]
+تمام گزینه‌ها چندانتخابی هستند.
+*/
+const services={
+ cctv:{
+  title:"دوربین مداربسته",image:IMAGE_PATHS.cctv,
+  description:"طراحی و اجرای سیستم‌های نظارت تصویری",
+  questions:[
+  ["وضعیت فعلی شما؟","نصب دوربین جدید","افزایش دوربین‌ها","تعمیر یا ارتقای سیستم","مشاوره و خرید تجهیزات"],
+  ["محل نصب دوربین؟","منزل","مغازه","شرکت و اداره","کارخانه و انبار"],
+  ["چه فضایی باید پوشش داده شود؟","فضای داخلی","محوطه بیرونی","پارکینگ","ورودی و خروجی"],
+  ["چند دوربین نیاز دارید؟","۱ تا ۴ عدد","۵ تا ۸ عدد","۹ تا ۱۶ عدد","بیش از ۱۶ عدد"],
+  ["چه نوع دوربینی مدنظرتان است؟","دام (سقفی)","بولت (دیواری)","اسپیددام (چرخشی)","نیاز به مشاوره دارم"],
+  ["کیفیت تصویر موردنظر؟","۲ مگاپیکسل","۴ مگاپیکسل","۵ تا ۸ مگاپیکسل","بالاتر از ۸ مگاپیکسل"],
+  ["دید در شب چقدر مهم است؟","معمولی","رنگی","دید در شب قوی","تشخیص چهره در شب"],
+  ["چه امکاناتی نیاز دارید؟","تشخیص حرکت","تشخیص انسان","تشخیص پلاک","هشدار هوشمند"],
+  ["مشاهده تصاویر از کجا؟","فقط محل نصب","موبایل از راه دور","چند گوشی هم‌زمان","مرکز نگهبانی"],
+  ["تصاویر چند روز ذخیره شوند؟","۷ روز","۱۵ روز","۳۰ روز","بیشتر از ۳۰ روز"],
+  ["امکانات صدا؟","ضبط صدا","مکالمه دوطرفه","فقط تصویر","نیاز به مشاوره"],
+  ["نوع دوربین؟","دوربین AHD","دوربین IP","هنوز دوربین ندارم","نوع دوربین را نمی‌دانم"],
+  ["وضعیت کابل‌کشی؟","کابل‌کشی آماده است","نیاز به کابل‌کشی جدید","بخشی آماده است","نیاز به بازدید دارد"],
+  ["اینترنت محل؟","اینترنت ثابت","اینترنت سیم‌کارتی","مودم ندارم","نیاز به راهنمایی دارم"],
+  ["برق محل نصب چگونه تأمین می‌شود؟","برق شهری","برق اضطراری","UPS","نیاز به بررسی دارد"],
+  ["تجهیزات موردنیاز شما؟","دوربین","دستگاه ضبط","هارد ذخیره‌سازی","تجهیزات شبکه"],
+  ["چه سطحی از امنیت می‌خواهید؟","نظارت معمولی","نظارت دائمی","کنترل ورود و خروج","امنیت پیشرفته"],
+  ["چه زمانی قصد اجرا دارید؟","فوری","تا یک هفته","تا یک ماه","فعلاً در حال بررسی"],
+  ["برای ادامه کار چه اقدامی می‌خواهید؟","مشاوره تلفنی","بازدید از محل","برآورد قیمت","اجرای پروژه"],
+  ["بودجه تقریبی شما؟","بیشتر از ۶۰ میلیون تومان","۳۰ تا ۶۰ میلیون تومان","۲۰ تا ۳۰ میلیون تومان","کمتر از ۲۰ میلیون تومان"]
+ ]},
+ alarm:{
+  title:"دزدگیر اماکن",image:IMAGE_PATHS.alarm,
+  description:"طراحی و نصب سیستم‌های حفاظتی و هشدار سرقت",
+  questions:[
+  ["وضعیت فعلی شما؟","نصب دزدگیر جدید","ارتقای سیستم فعلی","تعمیر دزدگیر","مشاوره و خرید تجهیزات"],
+  ["محل نصب دزدگیر؟","منزل","مغازه","شرکت و اداره","کارخانه و انبار"],
+  ["چه بخش‌هایی نیاز به حفاظت دارند؟","درب ورودی","پنجره‌ها","دیوار و محوطه","تمام بخش‌ها"],
+  ["نوع سیستم موردنظر؟","سیمی","بی‌سیم","ترکیبی","نیاز به مشاوره دارم"],
+  ["چند بخش باید تحت پوشش باشد؟","۱ تا ۴ بخش","۵ تا ۸ بخش","۹ تا ۱۶ بخش","بیش از ۱۶ بخش"],
+  ["چه نوع سنسوری نیاز دارید؟","سنسور حرکتی","مگنت درب و پنجره","شوک‌سنسور یا خطی","تشخیص انسان"],
+  ["هشدار به چه صورت باشد؟","آژیر صوتی","تماس تلفنی","پیامک","هشدار روی موبایل"],
+  ["کنترل دزدگیر چگونه باشد؟","ریموت کنترل","اپلیکیشن موبایل","تماس تلفنی","صفحه‌کلید رمزدار"],
+  ["چه امکاناتی نیاز دارید؟","کنترل از راه دور","کنترل وسایل (روشنایی یا در پارکینگ و ...)","اعلام قطع برق","گزارش ورود و خروج"],
+  ["چند نفر از سیستم استفاده می‌کنند؟","یک نفر","دو نفر","سه تا پنج نفر","بیش از پنج نفر"],
+  ["برق محل چگونه تأمین شود؟","برق شهری","باتری پشتیبان","UPS","نیاز به بررسی دارد"],
+  ["در زمان قطع برق چه انتظاری دارید؟","ادامه کار با باتری","ارسال هشدار قطع برق","پشتیبانی طولانی‌مدت","نیاز به مشاوره دارم"],
+  ["ارتباط و هشدار سیستم چگونه باشد؟","سیم‌کارت","تلفن ثابت","ارتباط ترکیبی","شنیداری (آژیر)"],
+  ["چه نوع آژیری نیاز دارید؟","آژیر داخلی","آژیر بیرونی","آژیر فلاشر‌دار","چند آژیر هم‌زمان"],
+  ["وضعیت محل نصب چگونه است؟","ساختمان مسکونی","واحد تجاری","فضای باز","محیط صنعتی"],
+  ["سیستم فعلی چه وضعیتی دارد؟","سالم و فعال","دارای خطا","غیرفعال","دزدگیر ندارم"],
+  ["چه سطحی از حفاظت می‌خواهید؟","معمولی","متوسط","پیشرفته","امنیت حداکثری"],
+  ["چه زمانی قصد اجرا دارید؟","فوری","تا یک هفته","تا یک ماه","فعلاً در حال بررسی"],
+  ["برای ادامه کار چه اقدامی می‌خواهید؟","مشاوره تلفنی","بازدید از محل","برآورد قیمت","اجرای پروژه"],
+  ["بودجه تقریبی شما؟","بیشتر از ۶۰ میلیون تومان","۳۰ تا ۶۰ میلیون تومان","۲۰ تا ۳۰ میلیون تومان","کمتر از ۲۰ میلیون تومان"]
+ ]},
+ fire:{
+  title:"اعلام حریق",image:IMAGE_PATHS.fire,
+  description:"طراحی و اجرای سیستم‌های تشخیص و اعلام حریق",
+  questions:[
+  ["وضعیت فعلی شما؟","نصب سیستم جدید","توسعه سیستم فعلی","تعمیر یا ارتقای سیستم","مشاوره و خرید تجهیزات"],
+  ["محل نصب سیستم؟","مغازه","مجتمع مسکونی","شرکت و اداره","کارخانه و انبار"],
+  ["چه بخش‌هایی نیاز به پوشش دارند؟","اتاق‌ها","راهروها","پارکینگ","تمام بخش‌ها"],
+  ["نوع سیستم موردنظر؟","متعارف (Conventional)","آدرس‌پذیر (Addressable)","سیستم متناسب با نوع ساختمان","نیاز به مشاوره دارم"],
+  ["مساحت تقریبی محل؟","زیر ۱۰۰ متر","۱۰۰ تا ۵۰۰ متر","۵۰۰ تا ۱۰۰۰ متر","بیش از ۱۰۰۰ متر"],
+  ["چه نوع دتکتوری نیاز دارید؟","دودی","حرارتی","ترکیبی","گازی (CO و CO₂)"],
+  ["چه نوع شستی نیاز دارید؟","شستی اعلام حریق","شستی دستی شکستنی","شستی ضدآب","نیاز به مشاوره دارم"],
+  ["چه نوع هشدار نیاز دارید؟","آژیر صوتی","فلاشر نوری","آژیر فلاشر","هشدار صوتی و پیامی"],
+  ["سیستم به کجا متصل باشد؟","اتاق نگهبانی","مرکز کنترل","موبایل مسئول","سیستم مانیتورینگ"],
+  ["چند طبقه ساختمان دارید؟","یک طبقه","دو تا چهار طبقه","پنج تا ده طبقه","بیش از ده طبقه"],
+  ["چه تجهیزاتی نیاز دارید؟","پنل مرکزی","دتکتور","شستی اعلام حریق","آژیر و فلاشر"],
+  ["وضعیت سیم‌کشی؟","آماده است","نیاز به سیم‌کشی جدید","بخشی آماده است","نیاز به بازدید دارد"],
+  ["برق سیستم چگونه تأمین شود؟","برق شهری","باتری پشتیبان","برق اضطراری","نیاز به بررسی دارد"],
+  ["چه نوع حفاظتی نیاز دارید؟","تشخیص دود","تشخیص حرارت","تشخیص شعله","پوشش کامل حریق"],
+  ["وضعیت سیستم فعلی؟","سالم و فعال","دارای خطا","غیرفعال","سیستم ندارم"],
+  ["سیستم برای چه نوع کاربری است؟","مسکونی","تجاری","اداری","صنعتی"],
+  ["چه سطحی از پوشش می‌خواهید؟","محدود","معمولی","کامل","مطابق استاندارد و ضوابط"],
+  ["چه زمانی قصد اجرا دارید؟","فوری","تا یک هفته","تا یک ماه","فعلاً در حال بررسی"],
+  ["برای ادامه کار چه اقدامی می‌خواهید؟","مشاوره تلفنی","بازدید از محل","برآورد قیمت","اجرای پروژه"],
+  ["بودجه تقریبی شما؟","بیشتر از ۶۰ میلیون تومان","۳۰ تا ۶۰ میلیون تومان","۲۰ تا ۳۰ میلیون تومان","کمتر از ۲۰ میلیون تومان"]
+ ]},
+ smart:{
+  title:"خانه هوشمند",image:IMAGE_PATHS.smart,
+  description:"هوشمندسازی روشنایی، پرده، سرمایش و تجهیزات",
+  questions:[
+  ["چه خدماتی در خانه هوشمند نیاز دارید؟","هوشمندسازی کامل ساختمان","کنترل روشنایی و نورپردازی","کنترل پرده و تجهیزات برقی","کنترل سرمایش و گرمایش"],
+  ["محل اجرای پروژه؟","منزل مسکونی","ویلا","واحد اداری","واحد تجاری"],
+  ["وضعیت ساختمان؟","در حال ساخت","در حال بازسازی","آماده سکونت","در حال استفاده"],
+  ["چه تجهیزاتی می‌خواهید کنترل کنید؟","چراغ‌ها","پرده‌ها","کولر و سیستم گرمایش","لوازم برقی"],
+  ["کنترل سیستم از چه طریقی باشد؟","موبایل","کلید لمسی","فرمان صوتی","کنترل مرکزی"],
+  ["چه امکاناتی نیاز دارید؟","سناریوی خروج از منزل","سناریوی ورود به منزل","کنترل خودکار روشنایی","زمان‌بندی تجهیزات"],
+  ["سیستم امنیتی هوشمند هم می‌خواهید؟","دوربین مداربسته","دزدگیر اماکن","سنسور درب و پنجره","سنسور تشخیص حرکت"],
+  ["کنترل درب‌ها چگونه باشد؟","قفل هوشمند","ریموت کنترل","اپلیکیشن موبایل","رمز یا اثر انگشت"],
+  ["چه امکاناتی برای روشنایی می‌خواهید؟","روشن و خاموش کردن","تنظیم شدت نور","تغییر رنگ نور","نورپردازی زمان‌بندی‌شده"],
+  ["کنترل پرده‌ها چگونه باشد؟","باز و بسته شدن خودکار","کنترل با موبایل","زمان‌بندی پرده‌ها","کنترل دستی و هوشمند"],
+  ["سیستم سرمایش و گرمایش؟","کولر گازی","سیستم گرمایش","فن‌کوئل","کنترل دمای خودکار"],
+  ["چه نوع شبکه‌ای مدنظر دارید؟","سیمی","بی‌سیم","ترکیبی","نیاز به مشاوره دارم"],
+  ["سیستم صوتی هوشمند می‌خواهید؟","پخش موسیقی","بلندگوی سقفی","کنترل صوتی","سیستم صوتی چندمنطقه‌ای"],
+  ["کنترل هوشمند در چه بخش‌هایی باشد؟","پذیرایی","اتاق خواب","آشپزخانه","تمام ساختمان"],
+  ["وضعیت سیم‌کشی ساختمان؟","سیم‌کشی آماده است","سیم‌کشی جدید لازم است","بخشی آماده است","نیاز به بازدید دارد"],
+  ["سیستم با چه تجهیزاتی هماهنگ باشد؟","موبایل","آیفون","تجهیزات امنیتی","لوازم هوشمند دیگر"],
+  ["چه زمانی قصد اجرا دارید؟","فوری","تا یک هفته","تا یک ماه","فعلاً در حال بررسی"],
+  ["برای ادامه کار چه اقدامی می‌خواهید؟","مشاوره تلفنی","بازدید از محل","برآورد قیمت","اجرای پروژه"],
+  ["بودجه تقریبی شما؟","بیشتر از ۶۰ میلیون تومان","۳۰ تا ۶۰ میلیون تومان","۲۰ تا ۳۰ میلیون تومان","کمتر از ۲۰ میلیون تومان"]
+ ]},
+ wiring:{
+  title:"سیم‌کشی کامل ساختمان",image:IMAGE_PATHS.wiring,
+  description:"اجرای سیم‌کشی، تابلو برق و تجهیزات الکتریکی",
+  questions:[
+  ["چه نوع خدمات سیم‌کشی نیاز دارید؟","سیم‌کشی ساختمان جدید","تعویض سیم‌کشی قدیمی","تعمیر و رفع اتصالی","توسعه و تغییر سیم‌کشی"],
+  ["محل اجرای سیم‌کشی؟","منزل مسکونی","مغازه","شرکت و اداره","کارخانه و انبار"],
+  ["وضعیت ساختمان؟","در حال ساخت","در حال بازسازی","آماده سکونت","در حال استفاده"],
+  ["چند طبقه ساختمان دارید؟","یک طبقه","دو تا چهار طبقه","پنج تا ده طبقه","بیش از ده طبقه"],
+  ["چه بخش‌هایی سیم‌کشی شوند؟","روشنایی","پریز برق","آشپزخانه","تمام ساختمان"],
+  ["چه نوع سیم‌کشی نیاز دارید؟","برق روشنایی","برق پریزها","برق صنعتی","سیم‌کشی کامل"],
+  ["چه تجهیزاتی نصب شوند؟","کلید و پریز","فیوز و تابلو برق","محافظ جان","سیستم ارت"],
+  ["وضعیت تابلو برق؟","نصب تابلو جدید","تعویض تابلو قدیمی","توسعه تابلو","تعمیر و عیب‌یابی"],
+  ["چه نوع روشنایی نیاز دارید؟","روشنایی معمولی","نورپردازی مخفی","روشنایی هوشمند","روشنایی محوطه"],
+  ["چه تجهیزات حفاظتی نیاز دارید؟","محافظ جان","فیوز مینیاتوری","سیستم ارت","محافظ نوسان برق"],
+  ["چه سیستم‌هایی نیاز به سیم‌کشی دارند؟","آیفون تصویری","شبکه و اینترنت","آنتن مرکزی","کل سیم‌کشی"],
+  ["مسیر عبور سیم‌ها چگونه باشد؟","داخل لوله","داخل داکت","داخل سینی کابل","نیاز به بررسی دارد"],
+  ["چه نوع سیم‌کشی نیاز دارید؟","توکار","روکار","معمولی","اصولی و استاندارد"],
+  ["وضعیت سیم‌کشی فعلی؟","سالم","فرسوده","دارای اتصالی","سیم‌کشی انجام نشده"],
+  ["چه خدمات تکمیلی نیاز دارید؟","نصب روشنایی","نصب تجهیزات برقی","عیب‌یابی برق","اجرای سیستم ارت"],
+  ["چه زمانی قصد اجرا دارید؟","فوری","تا یک هفته","تا یک ماه","فعلاً در حال بررسی"],
+  ["برای ادامه کار چه اقدامی می‌خواهید؟","مشاوره تلفنی","بازدید از محل","برآورد قیمت","اجرای پروژه"],
+  ["بودجه تقریبی شما؟","بیشتر از ۶۰ میلیون تومان","۳۰ تا ۶۰ میلیون تومان","۲۰ تا ۳۰ میلیون تومان","کمتر از ۲۰ میلیون تومان"]
+ ]}
+};
+
+const cardRoot=document.getElementById("serviceCards");
+Object.entries(services).forEach(([key,s])=>{
+ const card=document.createElement("article");
+ card.className="service-card";
+ card.innerHTML=`
+  <img src="${s.image}" alt="${s.title}" loading="lazy">
+  <div class="service-content">
+   <h3>${s.title}</h3>
+   <p>${s.description}</p>
+   <button class="btn primary" onclick="openForm('${key}')">درخواست مشاوره</button>
+  </div>`;
+ cardRoot.appendChild(card);
 });
-function openDetail(i){
-active=i;let s=services[i];
-document.getElementById("home").style.display="none";
-document.getElementById("detail").style.display="block";
-document.getElementById("consult").style.display="none";
-document.getElementById("detailImage").src="images/"+s.img;
-document.getElementById("detailTitle").textContent=s.name;
-document.getElementById("detailSubtitle").textContent=s.subtitle;
-document.getElementById("infoTitle").textContent="خدمات تخصصی "+s.name;
-document.getElementById("infoText").textContent=s.desc;
-document.getElementById("benefits").innerHTML=s.benefits.map((b,i)=>`<div class="benefit"><b>✦</b><span>${b}</span></div>`).join("");
-window.scrollTo(0,0);
+
+let currentService=null;
+let currentStep=0;
+let answers={};
+
+function toggleMenu(){
+ document.getElementById("navlinks").classList.toggle("open");
 }
 function showHome(){
-document.getElementById("home").style.display="block";
-document.getElementById("detail").style.display="none";
-document.getElementById("consult").style.display="none";
-window.scrollTo(0,0);
+ document.getElementById("homeArea").classList.remove("hidden");
+ document.getElementById("formArea").classList.remove("active");
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-function showConsult(){
-let s=services[active];
-document.getElementById("formTitle").textContent="مشاوره اولیه | "+s.name;
-let box=document.getElementById("questions");box.innerHTML="";
-s.questions.forEach((q,i)=>{
-let d=document.createElement("div");d.className="question";
-d.innerHTML=`<p>${i+1}. ${q}</p><label><input type="radio" name="q${i}" value="بله"> بله</label><label><input type="radio" name="q${i}" value="خیر"> خیر</label><label><input type="radio" name="q${i}" value="نیاز به بررسی دارد"> نیاز به بررسی دارد</label>`;
-box.appendChild(d);
-});
-document.getElementById("detail").style.display="none";
-document.getElementById("consult").style.display="block";
-window.scrollTo(0,0);
+function openForm(key){
+ currentService=key;
+ currentStep=0;
+ answers={};
+ document.getElementById("homeArea").classList.add("hidden");
+ document.getElementById("formArea").classList.add("active");
+ document.getElementById("formTitle").textContent="فرم مشاوره "+services[key].title;
+ document.getElementById("customerContainer").hidden=true;
+ ["customerName","customerPhone","customerAddress","customerDescription"].forEach(id=>document.getElementById(id).value="");
+ document.getElementById("contactMethod").value="تماس تلفنی";
+ renderStep();
+ window.scrollTo({top:0,behavior:"smooth"});
 }
-function hideConsult(){
-document.getElementById("consult").style.display="none";
-document.getElementById("detail").style.display="block";
-window.scrollTo(0,0);
+function renderStep(){
+ const s=services[currentService];
+ const totalSteps=Math.ceil(s.questions.length/4)+1;
+ const customerStep=currentStep===totalSteps-1;
+ document.getElementById("questionContainer").innerHTML="";
+ document.getElementById("customerContainer").hidden=!customerStep;
+ document.getElementById("questionContainer").hidden=customerStep;
+ document.getElementById("stepLabel").textContent=customerStep?
+ "مرحله نهایی: مشخصات مشتری":
+ `مرحله ${currentStep+1} از ${totalSteps-1}`;
+ document.getElementById("progressBar").style.width=
+ ((currentStep+1)/totalSteps*100)+"%";
+
+ if(!customerStep){
+  const start=currentStep*4;
+  const end=Math.min(start+4,s.questions.length);
+  for(let i=start;i<end;i++){
+   const q=s.questions[i];
+   const wrap=document.createElement("div");
+   wrap.className="question";
+   const title=document.createElement("h3");
+   title.textContent=(i+1)+". "+q[0];
+   wrap.appendChild(title);
+   const options=document.createElement("div");
+   options.className="options";
+   q.slice(1).forEach((option,j)=>{
+    const label=document.createElement("label");
+    label.className="option";
+    const input=document.createElement("input");
+    input.type="checkbox";
+    input.value=option;
+    input.checked=(answers[i]||[]).includes(option);
+    input.addEventListener("change",()=>{
+     if(!answers[i])answers[i]=[];
+     if(input.checked){
+      if(!answers[i].includes(option))answers[i].push(option);
+     }else{
+      answers[i]=answers[i].filter(v=>v!==option);
+     }
+    });
+    const span=document.createElement("span");
+    span.textContent=option;
+    label.append(input,span);
+    options.appendChild(label);
+   });
+   wrap.append(title,options);
+   document.getElementById("questionContainer").appendChild(wrap);
+  }
+ }
+ document.getElementById("prevBtn").style.visibility=currentStep===0?"hidden":"visible";
+ document.getElementById("nextBtn").textContent=customerStep?"ارسال درخواست به واتساپ":"مرحله بعد";
 }
-document.getElementById("form").addEventListener("submit",function(e){
-e.preventDefault();
-let f=new FormData(this),s=services[active];
-let msg=`درخواست مشاوره چشم سوم\nخدمت: ${s.name}\nنام: ${f.get("name")}\nتلفن: ${f.get("phone")}\nآدرس: ${f.get("address")}\nمحدوده: ${f.get("region")}\nروش تماس: ${f.get("contact")}\n\nپاسخ سؤالات:\n`;
-s.questions.forEach((q,i)=>msg+=`${i+1}. ${q}\nپاسخ: ${f.get("q"+i)||"پاسخ داده نشده"}\n`);
-msg+=`\nتوضیحات: ${f.get("notes")||"ندارد"}`;
-window.open("https://wa.me/989981214662?text="+encodeURIComponent(msg),"_blank");
-});
+function nextStep(){
+ const totalSteps=Math.ceil(services[currentService].questions.length/4)+1;
+ if(currentStep===totalSteps-1){
+  sendWhatsApp();
+  return;
+ }
+ currentStep++;
+ renderStep();
+ document.querySelector(".form-shell").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function previousStep(){
+ if(currentStep>0){
+  currentStep--;
+  renderStep();
+  document.querySelector(".form-shell").scrollIntoView({behavior:"smooth",block:"start"});
+ }
+}
+function sendWhatsApp(){
+ const name=document.getElementById("customerName").value.trim();
+ const phone=document.getElementById("customerPhone").value.trim();
+ if(!name||!phone){
+  alert("لطفاً نام و شماره تماس را وارد کنید.");
+  if(!name)document.getElementById("customerName").focus();
+  else document.getElementById("customerPhone").focus();
+  return;
+ }
+ const s=services[currentService];
+ let message="درخواست مشاوره جدید از سایت چشم سوم\n";
+ message+="━━━━━━━━━━━━━━\n";
+ message+="خدمت: "+s.title+"\n\n";
+ message+="پاسخ‌های مشتری:\n";
+ s.questions.forEach((q,i)=>{
+  const selected=answers[i]||[];
+  message+=(i+1)+". "+q[0]+"\n";
+  message+="پاسخ: "+(selected.length?selected.join("، "):"انتخاب نشده")+"\n\n";
+ });
+ message+="━━━━━━━━━━━━━━\n";
+ message+="مشخصات مشتری:\n";
+ message+="نام: "+name+"\n";
+ message+="شماره تماس: "+phone+"\n";
+ message+="آدرس/محدوده: "+(document.getElementById("customerAddress").value.trim()||"ذکر نشده")+"\n";
+ message+="روش پیگیری: "+document.getElementById("contactMethod").value+"\n";
+ message+="توضیحات: "+(document.getElementById("customerDescription").value.trim()||"ندارد");
+ const url="https://wa.me/989981214662?text="+encodeURIComponent(message);
+ window.open(url,"_blank");
+}
 </script>
 </body>
 </html>
