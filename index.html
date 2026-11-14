@@ -206,8 +206,14 @@ footer{padding:25px 0;background:#04101a;text-align:center;color:var(--muted);fo
 
 <div class="form-area" id="formArea">
  <div class="container">
-  <button class="btn outline back-home" onclick="showHome()">← بازگشت به صفحه اصلی</button>
-  <div class="form-shell">
+<button class="btn outline back-home" onclick="showHome()">← بازگشت به صفحه اصلی</button>
+
+<div class="service-detail-hero">
+ <img id="serviceHeroImage" src="" alt="">
+ <div class="service-detail-caption" id="serviceHeroCaption"></div>
+</div>
+
+<div class="form-shell">  <div class="form-shell">
    <div class="form-top">
     <h2 id="formTitle">فرم مشاوره</h2>
     <span class="step-label" id="stepLabel"></span>
@@ -433,6 +439,12 @@ function openForm(key){
  document.getElementById("homeArea").classList.add("hidden");
  document.getElementById("formArea").classList.add("active");
  document.getElementById("formTitle").textContent="فرم مشاوره "+services[key].title;
+ const serviceImage=document.getElementById("serviceHeroImage");
+serviceImage.src=services[key].image;
+serviceImage.alt=services[key].title;
+
+document.getElementById("serviceHeroCaption").textContent=
+"مشاوره تخصصی "+services[key].title;
  document.getElementById("customerContainer").hidden=true;
  ["customerName","customerPhone","customerAddress","customerDescription"].forEach(id=>document.getElementById(id).value="");
  document.getElementById("contactMethod").value="تماس تلفنی";
