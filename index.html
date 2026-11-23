@@ -493,19 +493,34 @@ const services={
  ]}
 };
 
+
 const cardRoot=document.getElementById("serviceCards");
+
 Object.entries(services).forEach(([key,s])=>{
  const card=document.createElement("article");
  card.className="service-card";
+ card.tabIndex=0;
+ card.setAttribute("role","button");
+ card.setAttribute("aria-label","مشاهده خدمات "+s.title);
+
  card.innerHTML=`
   <img src="${s.image}" alt="${s.title}" loading="lazy">
   <div class="service-content">
-   <h3>${s.title}</h3>
-   <p>${s.description}</p>
-   <button class="btn primary" onclick="openForm('${key}')">درخواست مشاوره</button>
+   <h3>خدمات ${s.title}</h3>
   </div>`;
+
+ card.addEventListener("click",()=>openService(key));
+
+ card.addEventListener("keydown",(event)=>{
+  if(event.key==="Enter" || event.key===" "){
+   event.preventDefault();
+   openService(key);
+  }
+ });
+
  cardRoot.appendChild(card);
 });
+
 
 let currentService=null;
 let currentStep=0;
