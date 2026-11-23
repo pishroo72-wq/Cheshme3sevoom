@@ -547,7 +547,9 @@ function openService(key){
  document.getElementById("formArea").classList.add("active");
  document.getElementById("serviceDetail").hidden=false;
  document.getElementById("consultationForm").hidden=true;
-
+const serviceImage=document.getElementById("serviceHeroImage");
+serviceImage.src=DETAIL_IMAGES[key];
+serviceImage.alt=services[key].title;
  const serviceImage=document.getElementById("serviceHeroImage");
  serviceImage.src=DETAIL_IMAGES[key];
  serviceImage.alt=services[key].title;
