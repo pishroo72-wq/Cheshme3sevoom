@@ -283,12 +283,12 @@ footer{padding:25px 0;background:#04101a;text-align:center;color:var(--muted);fo
  <div class="container">
 <button class="btn outline back-home" onclick="showHome()">← بازگشت به صفحه اصلی</button>
 
-<div class="service-detail-hero">
- <img id="serviceHeroImage" src="" alt="">
- <div class="service-detail-caption" id="serviceHeroCaption"></div>
+<div class="service-detail" id="serviceDetail" hidden>
+<img id="serviceHeroImage" src="" alt="">
+<button class="btn primary" onclick="startConsultation()">مشاوره اولیه</button>
 </div>
 
-<div class="form-shell">  <div class="form-shell">
+<div class="form-shell" id="consultationForm" hidden>
    <div class="form-top">
     <h2 id="formTitle">فرم مشاوره</h2>
     <span class="step-label" id="stepLabel"></span>
