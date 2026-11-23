@@ -529,11 +529,54 @@ let answers={};
 function toggleMenu(){
  document.getElementById("navlinks").classList.toggle("open");
 }
+
 function showHome(){
  document.getElementById("homeArea").classList.remove("hidden");
  document.getElementById("formArea").classList.remove("active");
+ document.getElementById("serviceDetail").hidden=true;
+ document.getElementById("consultationForm").hidden=true;
  window.scrollTo({top:0,behavior:"smooth"});
 }
+
+function openService(key){
+ currentService=key;
+ currentStep=0;
+ answers={};
+
+ document.getElementById("homeArea").classList.add("hidden");
+ document.getElementById("formArea").classList.add("active");
+ document.getElementById("serviceDetail").hidden=false;
+ document.getElementById("consultationForm").hidden=true;
+
+ const serviceImage=document.getElementById("serviceHeroImage");
+ serviceImage.src=DETAIL_IMAGES[key];
+ serviceImage.alt=services[key].title;
+
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function startConsultation(){
+ if(!currentService)return;
+
+ currentStep=0;
+ answers={};
+
+ document.getElementById("serviceDetail").hidden=true;
+ document.getElementById("consultationForm").hidden=false;
+
+ document.getElementById("formTitle").textContent="فرم مشاوره "+services[currentService].title;
+ document.getElementById("customerContainer").hidden=true;
+
+ ["customerName","customerPhone","customerAddress","customerDescription"].forEach(id=>{
+  document.getElementById(id).value="";
+ });
+
+ document.getElementById("contactMethod").value="تماس تلفنی";
+
+ renderStep();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
 function openForm(key){
  currentService=key;
  currentStep=0;
